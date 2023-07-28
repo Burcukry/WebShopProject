@@ -50,4 +50,37 @@ public class Login extends BaseDriver {
         Assert.assertTrue(successLogin.getText().contains("unsuccessful"), "Test failed");
     }
 
+    @Test
+
+    public void test3() {
+        driver.get("https://demowebshop.tricentis.com/");
+
+        WebElement logIn = driver.findElement(By.xpath("//*[text()='Log in']"));
+        logIn.click();
+
+        WebElement userName = driver.findElement(By.id("Email"));
+        userName.sendKeys("stolegen257@gmail.com");
+
+        WebElement passWord = driver.findElement(By.id("Password"));
+        passWord.sendKeys("st12345678");
+
+        WebElement loginBttn = driver.findElement(By.cssSelector("input[value='Log in']"));
+        loginBttn.click();
+
+        WebElement AddToCart=driver.findElement(By.xpath("//div[3]/div/div[2]/div[3]/div[2]/input"));
+        AddToCart.click();
+
+        WebElement CopmleteCheckOut=driver.findElement(By.xpath("//span[.='Shopping cart']"));
+        CopmleteCheckOut.click();
+
+        WebElement Terms=driver.findElement(By.id("termsofservice"));
+        Terms.click();
+
+        WebElement CheckOut2=driver.findElement(By.id("checkout"));
+        CheckOut2.click();
+
+        WebElement Verify= driver.findElement(By.xpath("//div[@class='page-title']/h1"));
+
+        Assert.assertTrue(Verify.getText().contains("Checkout"),"Test Failed");
+    }
 }
